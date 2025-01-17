@@ -1,6 +1,6 @@
 # AGiXT Rust SDK
 
-This is the official Rust SDK for [AGiXT](https://github.com/AGiXT/python-sdk), providing a type-safe way to interact with the AGiXT API.
+This is the official Rust SDK for [AGiXT](https://github.com/Josh-XT/AGiXT), providing a type-safe way to interact with the AGiXT API.
 
 ## Features
 
