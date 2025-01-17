@@ -2,9 +2,14 @@
 name = "agixt-sdk"
 version = "0.1.0"
 edition = "2021"
-description = "Rust SDK for AGiXT"
+description = "Rust SDK for AGiXT - A powerful AI agent framework"
 authors = ["AGiXT Team"]
 license = "MIT"
+repository = "https://github.com/AGiXT/AGiXT-Rust"
+documentation = "https://docs.rs/agixt-sdk"
+readme = "README.md"
+keywords = ["ai", "agent", "sdk", "agixt", "api"]
+categories = ["api-bindings", "asynchronous"]
 
 [dependencies]
 reqwest = { version = "0.11", features = ["json"] }
@@ -19,4 +24,8 @@ url = "2.4"
 uuid = { version = "1.4", features = ["v4"] }
 
 [dev-dependencies]
-mockito = "1.0"
+mockito = "1.2.0"
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]

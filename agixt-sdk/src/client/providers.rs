@@ -121,31 +121,22 @@ impl super::AGiXTSDK {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
     use crate::AGiXTSDK;
-    use mockito::{mock, Mock};
+    use mockito;
 
-    fn setup_mock_server() -> (AGiXTSDK, Mock) {
-        let mock_server = mock("GET", "/api/provider")
+    #[tokio::test]
+    async fn test_get_providers() {
+        let mut mock_server = mockito::Server::new();
+        let _mock = mock_server
+            .mock("GET", "/api/provider")
             .with_status(200)
             .with_header("content-type", "application/json")
             .with_body(r#"{"providers": ["provider1", "provider2"]}"#)
             .create();
 
-        let client = AGiXTSDK::new(
-            Some(mockito::server_url()),
-            None,
-            false,
-        );
-
-        (client, mock_server)
-    }
-
-    #[tokio::test]
-    async fn test_get_providers() {
-        let (client, _mock) = setup_mock_server();
-        
+        let client = AGiXTSDK::new(Some(mock_server.url()), None, false);
         let providers = client.get_providers().await.unwrap();
+        
         assert_eq!(providers, vec!["provider1", "provider2"]);
     }
 }

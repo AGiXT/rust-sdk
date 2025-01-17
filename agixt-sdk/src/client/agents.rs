@@ -248,31 +248,22 @@ impl super::AGiXTSDK {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
     use crate::AGiXTSDK;
-    use mockito::{mock, Mock};
+    use mockito;
 
-    fn setup_mock_server() -> (AGiXTSDK, Mock) {
-        let mock_server = mock("POST", "/api/agent")
+    #[tokio::test]
+    async fn test_add_agent() {
+        let mut mock_server = mockito::Server::new();
+        let _mock = mock_server
+            .mock("POST", "/api/agent")
             .with_status(200)
             .with_header("content-type", "application/json")
             .with_body(r#"{"message": "Agent created successfully"}"#)
             .create();
 
-        let client = AGiXTSDK::new(
-            Some(mockito::server_url()),
-            None,
-            false,
-        );
-
-        (client, mock_server)
-    }
-
-    #[tokio::test]
-    async fn test_add_agent() {
-        let (client, _mock) = setup_mock_server();
-        
+        let client = AGiXTSDK::new(Some(mock_server.url()), None, false);
         let result = client.add_agent("test_agent", None, None, None).await.unwrap();
+        
         assert_eq!(result["message"], "Agent created successfully");
     }
 }
