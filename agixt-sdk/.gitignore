@@ -1,0 +1,58 @@
+# Rust build artifacts
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# IDE - VSCode
+.vscode/
+*.code-workspace
+.history/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# Environment files
+.env
+.env.*
+
+# Debug files
+*.log
+*.dmp
+
+# Documentation generation
+/doc/
+/docs/
+
+# Backup files
+*.bak
+*.swp
+*.swo
+
+# Test coverage
+/coverage/
+*.profraw
+/tarpaulin-report.html
+
+# Custom project files
+/examples/target/
+bench/target/
