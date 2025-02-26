@@ -13,7 +13,7 @@
 [![Discord](https://img.shields.io/discord/1097720481970397356?label=Discord&logo=discord&logoColor=white&style=plastic&color=5865f2)](https://discord.gg/d3TkHRZcjD)
 [![Twitter](https://img.shields.io/badge/Twitter-Follow_@Josh_XT-blue?logo=twitter&style=plastic)](https://twitter.com/Josh_XT)
 
-<img width="540" alt="417306251-654747dd-9f3f-49f8-bc6f-26794a39f18b" src="https://github.com/user-attachments/assets/6e575498-d2fb-4a83-b372-c9825fe82a72" />
+![AGiXT_New](https://github.com/user-attachments/assets/14a5c1ae-6af8-4de8-a82e-f24ea52da23f)
 
 
 This is the official Rust SDK for [AGiXT](https://github.com/AGiXT/rust-sdk), providing a type-safe way to interact with the AGiXT API.
