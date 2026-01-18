@@ -1,5 +1,8 @@
+//! Error types for the AGiXT SDK.
+
 use std::fmt;
 
+/// Error types for AGiXT SDK operations.
 #[derive(Debug)]
 pub enum Error {
     /// Error from the HTTP client
@@ -15,6 +18,8 @@ pub enum Error {
     AuthError(String),
     /// Invalid input parameters
     InvalidInput(String),
+    /// Resource not found
+    NotFound(String),
     /// Generic error for other cases
     Other(String),
 }
@@ -31,6 +36,7 @@ impl fmt::Display for Error {
             }
             Error::AuthError(msg) => write!(f, "Authentication error: {}", msg),
             Error::InvalidInput(msg) => write!(f, "Invalid input: {}", msg),
+            Error::NotFound(msg) => write!(f, "Not found: {}", msg),
             Error::Other(msg) => write!(f, "Error: {}", msg),
         }
     }
@@ -48,4 +54,5 @@ impl From<serde_json::Error> for Error {
     }
 }
 
+/// Result type alias using the AGiXT Error type.
 pub type Result<T> = std::result::Result<T, Error>;
