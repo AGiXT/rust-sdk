@@ -32,7 +32,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-agixt-sdk = "0.1.0"
+agixt-sdk = "0.2.0"
 ```
 
 ## Quick Start
